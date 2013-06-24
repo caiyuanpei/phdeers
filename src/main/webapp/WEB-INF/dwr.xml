@@ -1,0 +1,18 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+	<allow>
+		<!-- 
+		<create javascript="majorSer" creator="spring">
+            <param name="beanName" value="majorService" />
+        </create>
+        
+        <convert converter="bean" match="com.cathysoft.gsmis.domains.Major"  />
+        <convert converter="collection" match="java.util.Collection"/>
+        <convert converter="enum" match="com.cathysoft.gsmis.domains.Major$MajorType"/>
+        
+         -->
+	</allow>
+</dwr>
