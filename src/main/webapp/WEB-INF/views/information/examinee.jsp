@@ -7,15 +7,15 @@
 <form action="${form_action }" method="post">
 	<div class="field_container">
 		<label for="xm"><s:message code="information.examinee.xm.title" /></label>
-		<input type="text" name="xm" id="xm" />
-		<div class="for_xm description"></div>
+		<input type="text" name="xm" id="xm" style="width: 6em;" />
+		<div class="for_xm description">姓名之间不加空格。如“李明”</div>
 		<div class="for_xm error_msg"></div>
 	</div>
 	<div class="field_container">
 		<label for="xmpy"><s:message code="information.examinee.xmpy.title" /></label>
-		<input type="text" name="xmpy" id="xmpy" />
-		<div class="for_xmpy description"></div>
-		<div class="for_xmpy error_msg"></div>
+		<input type="text" name="xmpy" id="xmpy" style="width: 10em;" />
+		<div class="for_xmpy description">全部使用小写字母，中间不加空格。如“liming”</div>
+		<div class="for_xmpy error_msg">错误！！！！</div>
 	</div>
 	<div class="field_container">
 		<label for="zjlx"><s:message code="information.examinee.zjlx.title" /></label>

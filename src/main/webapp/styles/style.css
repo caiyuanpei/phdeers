@@ -122,8 +122,9 @@ line-height: 90px;
 /***FORM*********FORM***********FORM*********FORM*******FORM******FORM******FORM******FORM*****/
 #form_container{}
 
-.field_container { margin: 5px; display: block; border: 1px solid blue;}
-.field_container label {width:  6em; display: block; float: left; }
-.field_container input, .field_container select {float: left; display: block;}
-
+.field_container { margin: 5px; display: block; height: 100%;}
+.field_container label {width: 6em; display: block; }
+.field_container input, .field_container select {display: block; }
+.field_container .description{display: block; font-size: 0.8em; margin-left: 0.5em; color: blue;}
+.field_container .error_msg{display: block; font-size: 0.8em; color: red; margin-left: 0.5em;}
 
