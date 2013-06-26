@@ -67,10 +67,11 @@ width: 470px;
 margin-top: 20px;
 }
 #content h2 {
-margin: 0;
+margin: 0 0 1em 0;
 color: #57616A;
 line-height: 30px;
 font-size: 16px;
+border-bottom: 1px solid #57616A;
 }
 
 #content p { padding: 0 0 10px 0; color: #232323;}
@@ -122,9 +123,9 @@ line-height: 90px;
 /***FORM*********FORM***********FORM*********FORM*******FORM******FORM******FORM******FORM*****/
 #form_container{}
 
-.field_container { margin: 5px; display: block; height: 100%;}
-.field_container label {width: 6em; display: block; }
+.field_container { margin: 5px; display: block; height: 100%; position: relative;}
+.field_container label {width: 6em; display: block; float:left;}
 .field_container input, .field_container select {display: block; }
-.field_container .description{display: block; font-size: 0.8em; margin-left: 0.5em; color: blue;}
-.field_container .error_msg{display: block; font-size: 0.8em; color: red; margin-left: 0.5em;}
+.field_container .description{display: block; font-size: 0.8em; margin-left: 0.5em; color: blue; margin-left: 7em;}
+.field_container .error_msg{display: block; font-size: 0.8em; color: red; margin-left: 0.5em; margin-left: 7em;}
 

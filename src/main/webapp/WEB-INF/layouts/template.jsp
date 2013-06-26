@@ -5,11 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <s:url value="/styles/style.css" var="css_url" />
+<s:url value="/js/jquery-1.10.1.min.js" var="jQuery_url" />
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><s:message code="application_title" /></title>
 <link rel="stylesheet" type="text/css" href="${css_url }" />
+<script type="text/javascript" src="${jQuery_url }"></script>
 </head>
 <body>
 
