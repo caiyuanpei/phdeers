@@ -12,6 +12,9 @@
 <title><s:message code="application_title" /></title>
 <link rel="stylesheet" type="text/css" href="${css_url }" />
 <script type="text/javascript" src="${jQuery_url }"></script>
+
+<tiles:insertAttribute name="header" ignore="true" />
+
 </head>
 <body>
 

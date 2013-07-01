@@ -14,5 +14,13 @@
         <convert converter="enum" match="com.cathysoft.gsmis.domains.Major$MajorType"/>
         
          -->
+         
+        <create javascript="regionSer" creator="spring">
+         	<param name="beanName" value="regionService" />
+        </create>
+         
+        <convert converter="bean" match="com.cathysoft.phdeers.domains.Region"  />
+        <convert converter="collection" match="java.util.Collection"/>
+        <convert converter="map" match="java.util.Map"/>
 	</allow>
 </dwr>

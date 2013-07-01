@@ -6,6 +6,7 @@
 <tiles-definitions>
  
   <definition name="examinee.form" template="/WEB-INF/layouts/template.jsp">
+  	<put-attribute name="header" value="/WEB-INF/views/information/examinee-header.jsp" />
   	<put-attribute name="menu" value="/WEB-INF/layouts/_menu.jsp" />
   	<put-attribute name="content" value="/WEB-INF/views/information/examinee.jsp" />
   </definition>

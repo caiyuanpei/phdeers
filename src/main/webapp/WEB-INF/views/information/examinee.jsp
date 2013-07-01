@@ -1,7 +1,9 @@
+<%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% int currentYear = Calendar.getInstance().get(Calendar.YEAR); %>
 <div id="content">
 <s:url value="/information/examinee/check" var="form_action" />
 <h2><s:message code="information.examinee.title" /></h2>
@@ -38,29 +40,52 @@
 	</div>
 	<div class="field_container">
 		<label for="csrq"><s:message code="information.examinee.csrq.title" /></label>
-		<select name="csrq_year" id="csrq_year">
-		<fmt:formatDate value="" var="currentYear" pattern="yyyy" />
-		<c:forEach begin="${currentYear}" end="${currentYear }" var="y">
+		<select name="csrq_year" id="csrq_year" style="display:inline;">
+		<c:forEach begin="<%=currentYear-50 %>" end="<%=currentYear %>" var="y">
 			<option value="${y }">${y }年</option>
-		</c:forEach>
-		</select>
-		<select name="csrq_month" id="csrq_month">
+		</c:forEach></select>
+		<select name="csrq_month" id="csrq_month" style="display:inline;">
 		<c:forEach begin="1" end="12" var="m">
 			<option value="${m }">${m }月</option>
-		</c:forEach>
-		</select>
-		<select name="csrq_date" id="csrq_date">
+		</c:forEach></select>
+		<select name="csrq_date" id="csrq_date" style="display:inline;">
 		<c:forEach begin="1" end="31" var="d">
 			<option value="${d }">${d }日</option>
-		</c:forEach>
-		</select>
+		</c:forEach></select>
 		<div class="for_zjhm description" style="display: none;"></div>
 		<div class="for_zjhm error_msg" style="display: none;"></div>
+	</div>
+	
+	
+	<div class="field_container">
+		<label for="csdm"><s:message code="information.examinee.csdm.title" /></label>
+		<select name="csdm_p" id="csdm_p" style="display:inline;">
+			<option value="------">-请选择-</option>
+		</select>
+		<select name="csdm" id="csdm" style="display:none;">
+			<option value="------">-请选择-</option>
+		</select>
+		<div class="for_csdm description" style="display: none;"></div>
+		<div class="for_csdm error_msg" style="display: none;"></div>
 	</div>
 </form>
 <script type="text/javascript">
 $(function(){
 	$(":text,select").focus(function(){$(".for_"+$(this).attr('id')).slideDown();}).blur(function(){$(".for_"+$(this).attr('id')).slideUp();});
+	regionSer.fetchProvinces({
+		callback:function(provinces) {
+			dwr.util.addOptions("csdm_p", provinces, "dm", /*function(c){return c.dm+" - "+c.mc;}*/"mc");
+		}
+	});
+	$("#csdm_p").change(function(){
+		regionSer.fetchRegions($(this).val(), {
+			callback:function(regionsMap) {
+				for(var r in regionsMap) {
+					
+				}
+			}
+		});
+	});
 });
 </script>
 </div>
