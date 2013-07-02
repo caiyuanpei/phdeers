@@ -29,8 +29,6 @@
 			<option value="03"><s:message code="information.examinee.zjlx.03" /></option>
 			<option value="04"><s:message code="information.examinee.zjlx.04" /></option>
 		</select>
-		<div class="for_zjlx description" style="display: none;"></div>
-		<div class="for_zjlx error_msg" style="display: none;"></div>
 	</div>
 	<div class="field_container">
 		<label for="zjhm"><s:message code="information.examinee.zjhm.title" /></label>
@@ -55,14 +53,27 @@
 		<div class="for_zjhm description" style="display: none;"></div>
 		<div class="for_zjhm error_msg" style="display: none;"></div>
 	</div>
-	
-	
+	<div class="field_container">
+		<label for="xbm"><s:message code="information.examinee.xbm.title" /></label>
+		<select name="xbm" id="xbm">
+			<option value="1" selected="selected"><s:message code="information.examinee.xbm.1" /></option>
+			<option value="2"><s:message code="information.examinee.xbm.2" /></option>
+		</select>
+	</div>
+	<div class="field_container">
+		<label for="mzm"><s:message code="information.examinee.mzm.title" /></label>
+		<select name="mzm" id="mzm">
+			<option value="------">-请选择-</option>
+		</select>
+		<div class="for_mzm description" style="display: none;"></div>
+		<div class="for_mzm error_msg" style="display: none;"></div>
+	</div>
 	<div class="field_container">
 		<label for="csdm"><s:message code="information.examinee.csdm.title" /></label>
 		<select name="csdm_p" id="csdm_p" style="display:inline;">
 			<option value="------">-请选择-</option>
 		</select>
-		<select name="csdm" id="csdm" style="display:none;">
+		<select name="csdm" id="csdm" style="display:inline;">
 			<option value="------">-请选择-</option>
 		</select>
 		<div class="for_csdm description" style="display: none;"></div>
@@ -71,21 +82,10 @@
 </form>
 <script type="text/javascript">
 $(function(){
-	$(":text,select").focus(function(){$(".for_"+$(this).attr('id')).slideDown();}).blur(function(){$(".for_"+$(this).attr('id')).slideUp();});
-	regionSer.fetchProvinces({
-		callback:function(provinces) {
-			dwr.util.addOptions("csdm_p", provinces, "dm", /*function(c){return c.dm+" - "+c.mc;}*/"mc");
-		}
-	});
-	$("#csdm_p").change(function(){
-		regionSer.fetchRegions($(this).val(), {
-			callback:function(regionsMap) {
-				for(var r in regionsMap) {
-					
-				}
-			}
-		});
-	});
+	openAutoShowDescript();
+	ajaxInitProvinces("csdm_p");
+	ajaxRegion("csdm_p", "csdm");
+	ajaxInitNations("mzm")
 });
 </script>
 </div>

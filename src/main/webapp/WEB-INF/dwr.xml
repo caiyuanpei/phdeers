@@ -18,8 +18,14 @@
         <create javascript="regionSer" creator="spring">
          	<param name="beanName" value="regionService" />
         </create>
+        
+        <create javascript="nationSer" creator="spring">
+         	<param name="beanName" value="nationService" />
+        </create>
          
         <convert converter="bean" match="com.cathysoft.phdeers.domains.Region"  />
+        <convert converter="bean" match="com.cathysoft.phdeers.domains.Nation"  />
+        
         <convert converter="collection" match="java.util.Collection"/>
         <convert converter="map" match="java.util.Map"/>
 	</allow>

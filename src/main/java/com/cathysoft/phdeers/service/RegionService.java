@@ -10,4 +10,6 @@ public interface RegionService {
 	public List<Region> fetchProvinces();
 	
 	public LinkedHashMap<Region, List<Region>> fetchRegions(String provinceCode);
+	
+	public LinkedHashMap<String, List<Region>> fetchRegions2(String provinceCode);
 }

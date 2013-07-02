@@ -52,6 +52,28 @@ public class RegionServiceImpl implements RegionService{
 		return result;
 	}
 
-	
+	@Override
+	@Transactional(readOnly=true)
+	public LinkedHashMap<String, List<Region>> fetchRegions2(String provinceCode) {
+		LinkedHashMap<String, List<Region>> result = new LinkedHashMap<String, List<Region>>();
+		
+		TypedQuery<Region> q0 = entityManager.createQuery(
+				"SELECT r FROM Region r WHERE r.belongsTo.dm=:provinceCode", Region.class);
+		List<Region> cities = q0.setParameter("provinceCode", provinceCode).getResultList();
+		for(Region city : cities) {
+			TypedQuery<Region> q1 = entityManager.createQuery(
+					"SELECT r FROM Region r WHERE r.belongsTo=:city", Region.class);
+			List<Region> regions = q1.setParameter("city", city).getResultList();
+			if(regions.size()>0) {
+				result.put(city.getMc(), regions);
+			} else {
+				List<Region> l = new LinkedList<Region>();
+				l.add(city);
+				result.put(city.getMc(), l);
+			}
+		}
+		return result;
+	}
+
 	
 }
