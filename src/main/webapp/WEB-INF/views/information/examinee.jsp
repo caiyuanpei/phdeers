@@ -69,6 +69,14 @@
 		<div class="for_mzm error_msg" style="display: none;"></div>
 	</div>
 	<div class="field_container">
+		<label for="hfm"><s:message code="information.examinee.xbm.title" text="婚姻状况" /></label>
+		<select name="hfm" id="hfm">
+			<option value="0" selected="selected"><s:message code="information.examinee.hfm.0" text="未婚" /></option>
+			<option value="1"><s:message code="information.examinee.hfm.1" text="已婚" /></option>
+		</select>
+	</div>
+	
+	<div class="field_container">
 		<label for="csdm"><s:message code="information.examinee.csdm.title" /></label>
 		<select name="csdm_p" id="csdm_p" style="display:inline;">
 			<option value="------">-请选择-</option>
@@ -83,9 +91,10 @@
 <script type="text/javascript">
 $(function(){
 	openAutoShowDescript();
+	ajaxInitNations("mzm")
+	
 	ajaxInitProvinces("csdm_p");
 	ajaxRegion("csdm_p", "csdm");
-	ajaxInitNations("mzm")
 });
 </script>
 </div>
